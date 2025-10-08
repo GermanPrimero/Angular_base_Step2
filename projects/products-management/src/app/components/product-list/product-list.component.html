@@ -1,0 +1,12 @@
+<button [disabled]="products.length===0" (click)="toggleList()">Mostrar u ocultar lista</button>
+
+<label for="inputFiltro"></label>
+<input type="text" id="inputFiltro" [(ngModel)]="nombreIntroducido">
+
+<ul>
+    @for (product of products; track $index) {
+
+    <li>Nombre: {{product.name}} - -  Precio: {{product.price}}</li>
+
+    }
+</ul>
