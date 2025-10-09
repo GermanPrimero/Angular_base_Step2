@@ -1,12 +1,18 @@
-<button [disabled]="products.length===0" (click)="toggleList()">Mostrar u ocultar lista</button>
+<button [disabled]="productService.getProducts().length===0" (click)="toggleList()">Mostrar u ocultar lista</button>
 
 <label for="inputFiltro"></label>
 <input type="text" id="inputFiltro" [(ngModel)]="nombreIntroducido">
 
+@if (showList) {
 <ul>
-    @for (product of products; track $index) {
+    @for (product of productService.getProducts(); track $index) {
 
-    <li>Nombre: {{product.name}} - -  Precio: {{product.price}}</li>
+        <li appHighlight><app-product-item [product]="product" (productName)="onProductSelected($event)"></app-product-item></li>
+
+    
+
+
 
     }
 </ul>
+}

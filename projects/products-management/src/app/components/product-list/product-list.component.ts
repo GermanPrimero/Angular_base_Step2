@@ -1,11 +1,13 @@
 import {
   Component,
   EventEmitter,
+  inject,
   OnDestroy,
   OnInit,
   Output,
 } from '@angular/core';
 import { IProduct } from '../../models/product.model';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -14,18 +16,21 @@ import { IProduct } from '../../models/product.model';
   styleUrl: './product-list.component.scss',
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-  products: IProduct[] = [];
+  // products: IProduct[] = [];
   showList = false;
   nombreIntroducido = "";
+  productNameSelected: string = "";
+
+  productService = inject(ProductService);
 
   ngOnInit() {
-    this.products = [
-      // { name: 'Laptop', price: 1200 },
-      // { name: 'Mouse', price: 25 },
-      // { name: 'Keyboard', price: 50 },
-      // { name: 'Monitor', price: 300 },
-      // { name: 'Headphones', price: 80 },
-    ];
+    // this.products = [
+    //   { name: 'Laptop', price: 1200 },
+    //   { name: 'Mouse', price: 25 },
+    //   { name: 'Keyboard', price: 50 },
+    //   { name: 'Monitor', price: 300 },
+    //   { name: 'Headphones', price: 80 },
+    // ];
   }
   ngOnDestroy(): void {
     console.log('se destruyo el componente ProductList');
@@ -35,5 +40,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
     (this.showList) ? this.showList = false : this.showList = true;
 
+  }
+
+  onProductSelected(name:string) {
+    this.productNameSelected = name;
+    console.log(this.productNameSelected);
+    
   }
 }
