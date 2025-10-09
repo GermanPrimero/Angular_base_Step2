@@ -10,18 +10,4 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'ProductsManagement';
-  // showList = true;
-
-  // emptyList: boolean = false;
-
-  // toggleList(){
-
-  //   (this.showList) ? this.showList = false : this.showList = true;
-
-  // }
-
-  // checkListIsEmpty(isEmpty: boolean) {
-  //   // setTimeout(()=>this.emptyList = isEmpty)
-  //   this.emptyList = isEmpty;
-  // }
 }

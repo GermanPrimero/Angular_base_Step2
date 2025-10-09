@@ -1,14 +1,34 @@
 <button [disabled]="productService.getAllProducts().length==0" (click)="toggleList()">Mostrar u ocultar lista</button>
-<div [appShowOrHideFilter]="showFilter">
-    <label for="fieldName">Filtrar por nombre:</label>
+
+@switch (status) {
+@case ("loading") {
+<p>⏳ Loading products...</p>
+}
+@case("ready") {
+<p>✅ Products loaded successfully</p>
+}
+
+@case("empty") {
+<p>⚠️ There are not avaliable products</p>
+}
+
+@default {
+<p>Error: 👉 Something went wrong</p>
+}
+}
+
+<!-- <div [appShowOrHideFilter]="showFilter"> -->
+<!-- BETTER add status validation on directive -->
+<div [appShowOrHideFilter]="showFilter && status=='ready'">
+    <label for="fieldName">Filter by name:</label>
     <input type="text" id="inputFiltro" [(ngModel)]="nameEntered" (ngModelChange)="filterProducts()">
 
-    <label for="fieldPrice">Filtrar por precio:</label>
+    <label for="fieldPrice">Filter by price:</label>
     <input type="number" id="fieldPrice" [(ngModel)]="priceEntered" (ngModelChange)="filterProducts()">
 </div>
 
-
-@if (showList) {
+<!-- BETTER add status validation on directive -->
+@if (showList && status=='ready') {
 <ul>
     @for (product of products; track $index) {
 
@@ -17,4 +37,5 @@
 
     }
 </ul>
+<p>Product selected is: {{productNameSelected}}</p>
 }

@@ -22,19 +22,39 @@ export class ProductListComponent implements OnInit, OnDestroy {
   nameEntered = '';
   priceEntered : number|null = null;
   productNameSelected: string = '';
+  status = 'loading';
 
   productService = inject(ProductService);
 
   ngOnInit() {
     this.products = this.productService.getAllProducts();
+    this.loadingInitialStatus();
   }
   ngOnDestroy(): void {
     console.log('se destruyo el componente ProductList');
   }
 
+  loadingInitialStatus() {
+    if(this.products.length == 0) {
+      this.status="empty";
+    } else {
+      this.status="loading";
+    }
+  }
+
   toggleList() {
     this.showList ? (this.showList = false) : (this.showList = true);
     this.showFilter ? (this.showFilter = false) : (this.showFilter = true);
+    this.changeStatus();
+
+  }
+
+  changeStatus() {
+    if(this.showList) {
+      this.status = "ready";
+    } else {
+      this.status = "loading";
+    }
   }
 
   onProductSelected(name: string) {
