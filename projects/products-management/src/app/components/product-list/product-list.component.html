@@ -1,17 +1,19 @@
-<button [disabled]="productService.getProducts().length===0" (click)="toggleList()">Mostrar u ocultar lista</button>
+<button [disabled]="productService.getAllProducts().length==0" (click)="toggleList()">Mostrar u ocultar lista</button>
+<div [appShowOrHideFilter]="showFilter">
+    <label for="fieldName">Filtrar por nombre:</label>
+    <input type="text" id="inputFiltro" [(ngModel)]="nameEntered" (ngModelChange)="filterProducts()">
 
-<label for="inputFiltro"></label>
-<input type="text" id="inputFiltro" [(ngModel)]="nombreIntroducido">
+    <label for="fieldPrice">Filtrar por precio:</label>
+    <input type="number" id="fieldPrice" [(ngModel)]="priceEntered" (ngModelChange)="filterProducts()">
+</div>
+
 
 @if (showList) {
 <ul>
-    @for (product of productService.getProducts(); track $index) {
+    @for (product of products; track $index) {
 
-        <li appHighlight><app-product-item [product]="product" (productName)="onProductSelected($event)"></app-product-item></li>
-
-    
-
-
+    <li appHighlight><app-product-item [product]="product" (productName)="onProductSelected($event)"></app-product-item>
+    </li>
 
     }
 </ul>

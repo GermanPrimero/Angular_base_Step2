@@ -16,35 +16,41 @@ import { ProductService } from '../../services/product.service';
   styleUrl: './product-list.component.scss',
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-  // products: IProduct[] = [];
+  products: IProduct[] = [];
   showList = false;
-  nombreIntroducido = "";
-  productNameSelected: string = "";
+  showFilter = false;
+  nameEntered = '';
+  priceEntered : number|null = null;
+  productNameSelected: string = '';
 
   productService = inject(ProductService);
 
   ngOnInit() {
-    // this.products = [
-    //   { name: 'Laptop', price: 1200 },
-    //   { name: 'Mouse', price: 25 },
-    //   { name: 'Keyboard', price: 50 },
-    //   { name: 'Monitor', price: 300 },
-    //   { name: 'Headphones', price: 80 },
-    // ];
+    this.products = this.productService.getAllProducts();
   }
   ngOnDestroy(): void {
     console.log('se destruyo el componente ProductList');
   }
 
-  toggleList(){
-
-    (this.showList) ? this.showList = false : this.showList = true;
-
+  toggleList() {
+    this.showList ? (this.showList = false) : (this.showList = true);
+    this.showFilter ? (this.showFilter = false) : (this.showFilter = true);
   }
 
-  onProductSelected(name:string) {
+  onProductSelected(name: string) {
     this.productNameSelected = name;
     console.log(this.productNameSelected);
+  }
+
+  filterProducts() {
+    // console.log(typeof this.priceEntered);
     
+    // if (this.nameEntered == "" && (this.priceEntered==null)  /*|| this.priceEntered == null || this.priceEntered == 0*/) {
+    //   this.products = this.productService.getAllProducts();
+    // } else {
+    //   this.products = this.productService.filterProducts(this.nameEntered, this.priceEntered);
+    // }
+
+    this.products = this.productService.filterProducts(this.nameEntered, this.priceEntered)
   }
 }

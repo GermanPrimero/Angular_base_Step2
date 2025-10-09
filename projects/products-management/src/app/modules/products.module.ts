@@ -4,14 +4,15 @@ import { ProductListComponent } from '../components/product-list/product-list.co
 import { FormsModule } from '@angular/forms';
 import { ProductItemComponent } from '../components/product-item/product-item.component';
 import { HighlightDirective } from '../directives/highlight.directive';
+import { ShowOrHideFilterDirective } from '../directives/show-or-hide-filter.directive';
+// import { ShowOrHideFilterDirective } from "../directives/show-or-hide-filter.directive";
 
 @NgModule({
-  declarations: [ProductListComponent, ProductItemComponent, HighlightDirective],
+  declarations: [ProductListComponent, ProductItemComponent, HighlightDirective, ShowOrHideFilterDirective],
   imports: [
     CommonModule,
     FormsModule
-    
-  ],
+],
   exports: [
     ProductListComponent
   ]
