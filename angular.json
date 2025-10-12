@@ -192,6 +192,196 @@
           }
         }
       }
+    },
+    "task-manager-srvcs-mduls-commncation": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/task-manager-srvcs-mduls-commncation",
+      "sourceRoot": "projects/task-manager-srvcs-mduls-commncation/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/task-manager-srvcs-mduls-commncation",
+            "index": "projects/task-manager-srvcs-mduls-commncation/src/index.html",
+            "browser": "projects/task-manager-srvcs-mduls-commncation/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/task-manager-srvcs-mduls-commncation/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/task-manager-srvcs-mduls-commncation/public"
+              }
+            ],
+            "styles": [
+              "projects/task-manager-srvcs-mduls-commncation/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "task-manager-srvcs-mduls-commncation:build:production"
+            },
+            "development": {
+              "buildTarget": "task-manager-srvcs-mduls-commncation:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/task-manager-srvcs-mduls-commncation/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/task-manager-srvcs-mduls-commncation/public"
+              }
+            ],
+            "styles": [
+              "projects/task-manager-srvcs-mduls-commncation/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "exLevel4-task-manager-srvcs-mduls-commncation": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ex-level4-task-manager-srvcs-mduls-commncation",
+      "sourceRoot": "projects/ex-level4-task-manager-srvcs-mduls-commncation/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/ex-level4-task-manager-srvcs-mduls-commncation",
+            "index": "projects/ex-level4-task-manager-srvcs-mduls-commncation/src/index.html",
+            "browser": "projects/ex-level4-task-manager-srvcs-mduls-commncation/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ex-level4-task-manager-srvcs-mduls-commncation/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/ex-level4-task-manager-srvcs-mduls-commncation/public"
+              }
+            ],
+            "styles": [
+              "projects/ex-level4-task-manager-srvcs-mduls-commncation/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "exLevel4-task-manager-srvcs-mduls-commncation:build:production"
+            },
+            "development": {
+              "buildTarget": "exLevel4-task-manager-srvcs-mduls-commncation:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ex-level4-task-manager-srvcs-mduls-commncation/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/ex-level4-task-manager-srvcs-mduls-commncation/public"
+              }
+            ],
+            "styles": [
+              "projects/ex-level4-task-manager-srvcs-mduls-commncation/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {
