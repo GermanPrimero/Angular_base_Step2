@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ITask } from '../models/task.interface';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
   tasks: ITask[] = [];
+
+  private behaviourSubject!: BehaviorSubject<ITask[]>;
 
   constructor() {
     this.tasks = [
@@ -46,11 +48,28 @@ export class TaskService {
         category: 'Testing',
       },
     ];
+
+    this.behaviourSubject = new BehaviorSubject<ITask[]>(this.tasks);
   }
 
-  // getTasks(): Observable<ITask[]> {
+  getBehaviourSubjectAsObv(): Observable<ITask[]> {
+    return this.behaviourSubject.asObservable();
+  }
 
-  // }
+  filterTasksByCategory(name: string) {
+    if (name == '') {
+      this.behaviourSubject.next(this.tasks);
+    } else {
+      this.behaviourSubject.next(
+        this.tasks.filter((task) => {
+          if (task.category.toLowerCase() == name.toLowerCase()) {
+            return true;
+          } else {
+            return false;
+          }
+        })
+      );
 
-
+    }
+  }
 }

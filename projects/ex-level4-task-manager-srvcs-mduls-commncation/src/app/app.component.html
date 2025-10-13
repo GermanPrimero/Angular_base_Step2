@@ -6,7 +6,9 @@
 </header>
 
 <main>
-  <section class="principal-margins"><app-task-filter></app-task-filter>
+  <section class="principal-margins">
+    <app-task-filter (nameCategory)="getNameCategory($event)"></app-task-filter>
   </section>
-  <section class="principal-margins"><app-task-list></app-task-list></section>
+  <section class="principal-margins">
+    <app-task-list [tasks]="tasks"></app-task-list></section>
 </main>

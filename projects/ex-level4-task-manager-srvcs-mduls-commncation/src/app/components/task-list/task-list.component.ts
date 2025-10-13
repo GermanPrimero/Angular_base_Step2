@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ITask } from '../../models/task.interface';
 
 @Component({
   selector: 'app-task-list',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './task-list.component.scss'
 })
 export class TaskListComponent {
+  @Input() tasks: ITask[] = [];
+
+  
 
 }

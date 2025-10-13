@@ -1,7 +1,7 @@
 
 <div id="container-filter">
     <h2>Filter by category: </h2>
-<input type="text">
-<button>Filter</button>
+<input [(ngModel)]="nameEntered" type="text">
+<button (click)="filterByCategory()">Filter</button>
 </div>
 

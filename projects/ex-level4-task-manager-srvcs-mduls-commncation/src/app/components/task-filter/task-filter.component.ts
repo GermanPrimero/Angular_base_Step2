@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-task-filter',
@@ -6,6 +6,17 @@ import { Component } from '@angular/core';
   templateUrl: './task-filter.component.html',
   styleUrl: './task-filter.component.scss'
 })
-export class TaskFilterComponent {
+export class TaskFilterComponent implements OnInit {
+
+  @Output() nameCategory: EventEmitter<string> = new EventEmitter<string>();
+  nameEntered! : string;
+
+  ngOnInit(): void {
+      this.nameEntered = "";
+  }
+
+  filterByCategory() {
+    this.nameCategory.emit(this.nameEntered)
+  }
 
 }
