@@ -19,4 +19,12 @@ export class TaskFilterComponent implements OnInit {
     this.nameCategory.emit(this.nameEntered)
   }
 
+  getNameEntered() {
+    return this.nameEntered;
+  }
+  
+  // setNameEntered(name:string) {
+  //   this.nameEntered = name;
+  // }
+
 }

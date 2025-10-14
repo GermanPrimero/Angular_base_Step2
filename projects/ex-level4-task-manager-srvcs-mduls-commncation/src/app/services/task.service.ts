@@ -10,6 +10,8 @@ export class TaskService {
 
   private behaviourSubject!: BehaviorSubject<ITask[]>;
 
+  private currentFilter: string = "";
+
   constructor() {
     this.tasks = [
       {
@@ -62,14 +64,42 @@ export class TaskService {
     } else {
       this.behaviourSubject.next(
         this.tasks.filter((task) => {
-          if (task.category.toLowerCase() == name.toLowerCase()) {
+          if (task.category.toLowerCase() == name.toLowerCase() || task.category.toLowerCase().includes(name.toLowerCase())) {
             return true;
           } else {
             return false;
           }
         })
       );
-
     }
+  }
+
+  editStateOfTask(idTaskToModify: number) {
+    this.behaviourSubject.next(this.tasks.map((task)=>{
+      if(task.id == idTaskToModify) {
+
+        task.state = true;
+      }
+
+      return task;
+    }))
+
+    this.filterTasksByCategory(this.currentFilter);
+  }
+
+  showPendingTasks() {
+    this.behaviourSubject.next(this.tasks.filter((task) => !task.state))
+  }
+
+  showAllTasks(){
+    this.behaviourSubject.next(this.tasks);
+  }
+
+  setCurrentFilter(filter: string) {
+    this.currentFilter = filter;
+  }
+
+  getCurrentFilter() {
+    return this.currentFilter;
   }
 }

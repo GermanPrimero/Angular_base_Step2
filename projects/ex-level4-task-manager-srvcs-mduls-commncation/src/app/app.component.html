@@ -2,13 +2,16 @@
   <section class="principal-margins">
     <h1>App ex-level4</h1>
   </section>
-  
+
 </header>
 
 <main>
   <section class="principal-margins">
-    <app-task-filter (nameCategory)="getNameCategory($event)"></app-task-filter>
+    <app-task-filter #filterComponent (nameCategory)="getNameCategory($event)"></app-task-filter>
+    <button id="btn-mark-as-completed-tasks" (click)="markAsCompletedAllTasks()">Mark As Completed All Tasks</button>
   </section>
+
   <section class="principal-margins">
-    <app-task-list [tasks]="tasks"></app-task-list></section>
+    <app-task-list [tasks]="tasks"></app-task-list>
+  </section>
 </main>

@@ -11,7 +11,7 @@ import { TasksModule } from './tasks.module';
   imports: [
     BrowserModule,
     TasksModule,
-  ],
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

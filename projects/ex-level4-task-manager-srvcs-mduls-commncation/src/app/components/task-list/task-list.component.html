@@ -1,5 +1,7 @@
 <ul>
-    @for (task of tasks; track $index) {
-        <li><app-task-item [task]="task"></app-task-item></li>
+    @for (task of tasks; track task.id) {
+    <li><app-task-item [appHighlight]="task.state" [task]="task">
+         <span class="icon">🏗️ <strong>Icono de NG-CONTENT</strong></span> <!-- Proyectado -->
+        </app-task-item></li>
     }
 </ul>

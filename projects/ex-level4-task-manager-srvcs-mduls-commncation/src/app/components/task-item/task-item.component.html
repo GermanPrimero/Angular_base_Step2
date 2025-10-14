@@ -1,5 +1,14 @@
-<p><strong>Name:</strong> {{task.name}}</p>
-<p><strong>Description:</strong>  {{task.description}}</p>
-<p><strong>Category:</strong> {{task.category}}</p>
-<p><strong>State:</strong>  {{(task.state) ? "Activo": "Inactivo"}}</p>
+<div [class.borderFucsia]="task.state">
+    <ng-content></ng-content>
+    <p><strong>Name:</strong> {{task.name}}</p>
+    <p><strong>Description:</strong> {{task.description}}</p>
+    <p><strong>Category:</strong> {{task.category}}</p>
 
+
+    @if(task.state){
+    <p><strong>State:</strong> Completed</p>
+    }
+
+    <p *appUnless="task.state"><strong>State:</strong>Not Completed</p>
+    <button (click)="markAsCompleted()">Mark as completed</button>
+</div>
