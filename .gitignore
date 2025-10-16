@@ -40,3 +40,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#projects
+/projects/basic-user-manager
+/projects/solution_ex-level4
