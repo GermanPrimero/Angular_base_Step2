@@ -1,0 +1,13 @@
+<ul>
+
+    @for (product of productService.getProducts(); track product.id) {
+
+        <li>
+            <p>{{product.name}}</p>
+            <a [routerLink]="['/products', product.id]">+ Info</a>
+        </li>
+
+    }
+
+
+</ul>
