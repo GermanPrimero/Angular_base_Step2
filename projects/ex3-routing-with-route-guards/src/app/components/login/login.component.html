@@ -1,0 +1,17 @@
+<form (ngSubmit)="sendInfo($event); false">
+    <div>
+        <label for="email">Email:</label>
+        <input [(ngModel)]="email" type="text" [ngModelOptions]="{standalone: true}" >
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <input [(ngModel)]="password" type="password" [ngModelOptions]="{standalone: true}" >
+    </div>
+    <p id="messageOfError"> {{messageOfError}}</p>
+    <button type="submit">SEND</button>
+
+
+</form>
+
+<a [routerLink]="['']">Back to Home</a>

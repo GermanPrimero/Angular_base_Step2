@@ -1,0 +1,18 @@
+<nav>
+    <ul>
+        <li>
+            <a [routerLink]="['/products']">Ir a Productos</a>
+        </li>
+        <li>
+            <a [routerLink]="['/admin']">Ir a Admin</a>
+        </li>
+        <li>
+            <a [routerLink]="['/login']">Ir a Login</a>
+        </li>
+    </ul>
+</nav>
+
+@if(isLogged) {
+    <button (click)="logOut()">Log Out</button>
+}
+

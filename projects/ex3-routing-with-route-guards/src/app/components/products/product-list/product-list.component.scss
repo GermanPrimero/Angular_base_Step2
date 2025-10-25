@@ -1,0 +1,20 @@
+h2 {
+    width: max-content;
+    margin: 20px auto;
+    font-size: 1.5em;
+}
+.products-container {
+    display: grid;
+    grid-auto-rows: max-content;
+    justify-content: center;
+    gap: 20px;
+}
+
+.products-container div {
+    justify-items: center;
+}
+
+.products-container p, .products-container a {
+    display: block;
+    width: max-content;
+}
