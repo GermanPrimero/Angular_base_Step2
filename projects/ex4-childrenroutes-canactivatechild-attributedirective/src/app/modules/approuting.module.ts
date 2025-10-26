@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
-// FEEDBACK: when using routes with redirectTo, set the pathMarch: 'full' attribute
+// FEEDBACK: when using routes with redirectTo, set the pathMatch: 'full' attribute
 // to ensure the url exactly matches the path 
 
 @NgModule({
